@@ -1,0 +1,142 @@
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Lucida Bright, Georgia, serif;
+  --dark1: black;
+  --light1: white;
+  --dark2: darkblue;
+  --light2: lightblue;
+  /* background-color: var(--light1); */
+  background-image: url("https://images.pexels.com/photos/957061/milky-way-starry-sky-night-sky-star-957061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  color: var(--light1);
+}
+
+button {
+  background-color: var(--light2);
+  color: var(--dark2);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--dark2);
+}
+
+input {
+  display: block;
+  width: 95%;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  border: none;
+  border-bottom: 2px solid var(--dark2);
+  outline: none;
+  margin: 5px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.small {
+  font-size: small;
+  font-weight: normal;
+}
+
+/* Characters */
+#charactersList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+#charactersList div {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid var(--dark2);
+  border-radius: 5px;
+  color: var(--dark2);
+  background-color: var(--light2);
+  font-weight: bold;
+  box-shadow: 5px 5px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Character page */
+h1#name {
+  margin: 50px;
+}
+
+#myDIV {
+  margin: auto;
+  width: fit-content;
+  height: 100px;
+  color: yellow;
+  font-size: 25px;
+  animation: mymove 10s infinite linear;
+}
+
+@keyframes mymove {
+  50% {transform: rotateY(360deg);}
+}
+
+#generalInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 20px;
+}
+
+#generalInfo p {
+  padding: 20px;
+  margin: 10px;
+  color: var(--dark2);
+  background-color: var(--light2);
+  border: 1px solid var(--dark1);
+  border-bottom-width: 5px;
+  border-radius: 25%;
+}
+
+#generalInfo span {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+section#planets,
+section#characters,
+section#films {
+  margin: 50px;
+}
+
+section#planets ul,
+section#characters ul,
+section#films ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+section#planets a,
+section#characters a,
+section#films a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.1em;
+
+  background-color: var(--light2);
+  color: var(--dark2);
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--dark2);
+  box-shadow: 5px 5px 2px rgba(255, 255, 255, 0.5);
+}
