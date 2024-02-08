@@ -1,22 +1,39 @@
-function Home() {
+function Home(props) {
+  
+const handleTextChange = (e) => {
+  props.setUserInput(e.target.value);
+  console.log(e.target.value)
+}
+
+const handleClick = (e) => {
+  e.preventDefault();
+  // do something to process the user input
+  props.setSearchTerm(props.userInput)
+  // clear the box of userInput
+  props.setUserInput("")
+}
+
+const data_to_display = JSON.parse(props.data)
+
+  
   return (
     <>
       <h1>Home</h1>
       <div>
-        <h1>Star Wars Universe Lookup</h1>
-        <label for="searchString">Who you looking for?</label>
-        <input id="searchString" />
+        <h1>{data_to_display.first_name}</h1>
+        <h2>{data_to_display.last_name}</h2>
+
       </div>
       <form>
         <label>
-          Who you looking for?
+          Employee ID
           <input
             type="text"
-            // value={this.state.value}
-            // onChange={this.handleChange}
+            value={props.userInput}
+            onChange={handleTextChange}
           />
         </label>
-        {/* <input type="submit" value="Submit" /> */}
+        <button onClick={handleClick}>Search!</button>
       </form>
     </>
   );
