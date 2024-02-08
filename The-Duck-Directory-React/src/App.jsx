@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import NavigationBar from "./NavigationBar";
 import Home from "./Home";
+import Employee from "./Employee"
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 
@@ -27,7 +28,7 @@ const [searchTerm, setSearchTerm] = useState(1)
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home userInput={userInput} setUserInput={setUserInput} searchTerm={searchTerm} setSearchTerm={setSearchTerm} data={JSON.stringify(data)} />} />
-        <Route path="/employee" element={<h1>Employee</h1>} />
+        <Route path="/employee" element={<Employee {...data}/>} />
       </Routes>
     </div>
   );
