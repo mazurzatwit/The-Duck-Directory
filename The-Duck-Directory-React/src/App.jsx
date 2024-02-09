@@ -6,8 +6,8 @@ import Login from "./Login";
 import Prediction from "./Prediction";
 // import { PythonShell } from "python-shell";
 import { Routes, Route, Navigate } from "react-router-dom";
-import "./App.css";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+// import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [userInput, setUserInput] = useState();
