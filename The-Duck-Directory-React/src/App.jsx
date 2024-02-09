@@ -3,6 +3,8 @@ import NavigationBar from "./NavigationBar";
 import Home from "./Home";
 import Employee from "./Employee";
 import Login from "./Login";
+import Prediction from "./Prediction";
+// import { PythonShell } from "python-shell";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +18,9 @@ function App() {
   const [passwordInput, setPassword] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [creds, setCreds] = useState();
+  const [jobRole, setJobRole] = useState();
+  const [workLocale, setWorkLocale] = useState();
+  const [predictionData, setPredictionData] = useState();
 
   useEffect(() => {
     const getData = async function () {
@@ -44,6 +49,10 @@ function App() {
       getCurrentUser();
     }
   }, [creds]);
+
+  useEffect(() => {
+    console.log(predictionData);
+  }, [predictionData]);
 
   return (
     <div>
@@ -80,6 +89,18 @@ function App() {
         <Route
           path="/employee"
           element={<Employee data={data} currentUser={currentUser} />}
+        />
+        <Route
+          path="/prediction"
+          element={
+            <Prediction
+              jobRole={jobRole}
+              setJobRole={setJobRole}
+              workLocale={workLocale}
+              setWorkLocale={setWorkLocale}
+              setPredictionData={setPredictionData}
+            />
+          }
         />
       </Routes>
     </div>

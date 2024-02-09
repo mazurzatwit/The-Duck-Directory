@@ -28,7 +28,7 @@ module.exports.call = async function call(operation, parameters, callback) {
       break;
     case "findCurrentUser":
       const user = await collection.findOne({
-        field9: parameters.username,
+        username: parameters.username,
       });
       callback({ user: user });
       break;

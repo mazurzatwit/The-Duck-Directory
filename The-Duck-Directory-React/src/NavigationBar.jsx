@@ -6,8 +6,9 @@ function NavigationBar(props) {
   }
 
   const navigation = [
-    { title: 'Home', link: 'home' },
-    { title: 'Employee', link: 'employee' },
+    { title: "Home", link: "home" },
+    { title: "Employee", link: "employee" },
+    { title: "Prediction", link: "prediction" },
   ];
   return (
     <nav>

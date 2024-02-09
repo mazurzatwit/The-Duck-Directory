@@ -23,7 +23,7 @@ function Login(props) {
 
   return (
     <>
-      <h1>Login into the Duck Direcrtory!</h1>
+      <h1>Login into the Duck Directory!</h1>
       <form>
         <label>
           Username
