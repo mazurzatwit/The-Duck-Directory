@@ -17,6 +17,18 @@ app.get("/employee/:id", function (req, res) {
     })
 });
 
+app.get("/employee/username/:field9", function (req, res) {
+  dao.call("findCurrentUser", { username: req.params.field9 }, (result) => {
+    console.log(req.params);
+    if (result.user !== undefined) {
+      res.send(result.user);
+    } else {
+      res.statusCode = 404;
+      res.end();
+    }
+  });
+});
+
 const port = 3000;
 console.log("server starting on port: " + port);
 app.listen(port);
