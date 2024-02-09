@@ -4,6 +4,7 @@ import Home from "./Home";
 import Employee from "./Employee"
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 

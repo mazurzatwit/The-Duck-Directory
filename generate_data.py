@@ -43,7 +43,9 @@ first_five = [
         "Hartford",
         1000000,
         [2,3], #direct reports
-        [] #manager
+        [], #manager
+        "bob.duck", #username
+        "abc123" #password
     ],
     [
         2,
@@ -54,7 +56,9 @@ first_five = [
         "St. Paul",
         800000,
         [4], #direct reports
-        [1] #manager
+        [1], #manager
+        "paddles.flippers", #username
+        "abc124" #password
     ],
     [
        3,
@@ -65,18 +69,22 @@ first_five = [
         "Hartford",
         800000,
         [5], #direct reports
-        [1] #manager
+        [1], #manager
+        "swims.mcgee", #username
+        "abc125" #password
     ],
     [
         4,
         "Michael",
-        "Phelps Jr.",
+        "Phelps",
         "835-535-6525",
         "Employee",
         "Hartford",
         100000,
         [], #direct reports
-        [2] #manager
+        [2], #manager
+        "michael.phelps", #username
+        "abc126" #password
     ],
     [
         5,
@@ -87,7 +95,9 @@ first_five = [
         "St. Paul",
         100000,
         [], #direct reports
-        [3] #manager
+        [3], #manager
+        "donald.duck", #username
+        "abc127" #password
     ]
 ]
 # for i in range(1, NUM_ROWS + 1):
