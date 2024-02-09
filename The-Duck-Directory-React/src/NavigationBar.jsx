@@ -1,6 +1,10 @@
 import NavigationItem from './NavigationItem';
 
-function NavigationBar() {
+function NavigationBar(props) {
+  if(!props.isLoggedIn){
+    return null;
+  }
+
   const navigation = [
     { title: 'Home', link: 'home' },
     { title: 'Employee', link: 'employee' },

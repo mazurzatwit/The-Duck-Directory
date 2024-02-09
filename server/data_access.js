@@ -17,12 +17,20 @@ module.exports.call = async function call(operation, parameters, callback) {
 
   // set the database to use
   const db = client.db(dbName);
+  const collection = db.collection(collectionDucks);
 
   switch (operation) {
     case "findOneEmployee":
-      collection = db.collection(collectionDucks);
-      const employee = await collection.findOne({ employee_id: parseInt(parameters.id) });
+      const employee = await collection.findOne({
+        employee_id: parseInt(parameters.id),
+      });
       callback({ employee: employee });
+      break;
+    case "findCurrentUser":
+      const user = await collection.findOne({
+        field9: parameters.username,
+      });
+      callback({ user: user });
       break;
     // case "findOneFilm":
     //   collection = db.collection(collectionFilms);
@@ -74,6 +82,7 @@ module.exports.call = async function call(operation, parameters, callback) {
 
     //   break;
     default:
+      callback({})
       break;
   }
   console.log("call complete: " + operation);
