@@ -65,7 +65,7 @@ first_five = [
         "Swims",
         "McGee",
         "860-535-5525",
-        "Manager",
+        "HR",
         "Hartford",
         800000,
         [5], #direct reports

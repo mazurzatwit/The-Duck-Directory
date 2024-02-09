@@ -1,0 +1,6 @@
+- add field on home page to search by full name
+- add login page to redirect to home page
+- add ability to store status of login
+- display correct employee data on employee page depending on user's access level
+- generate fake data
+- train learner
