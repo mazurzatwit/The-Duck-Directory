@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-flask": "flask run --no-debugger"
+    "start-flask": "venv/bin/flask run --no-debugger"
   },
   "keywords": [],
   "author": "",
