@@ -18,9 +18,24 @@ app.get("/employee/:id", function (req, res) {
   });
 });
 
+app.get("/employee/name/:wholeName", function (req, res) {
+  const name_list = req.params.wholeName.split(".");
+  console.log(name_list)
+  const first_name = name_list[0];
+  const last_name = name_list[1];
+  dao.call("findOneEmployeeByName", { first_name: first_name, last_name: last_name }, (result) => {
+    if (result.employee !== undefined) {
+      res.send(result.employee);
+    } else {
+      res.statusCode = 404;
+      res.end();
+    }
+  });
+});
+
 app.get("/employee/username/:username", function (req, res) {
   dao.call("findCurrentUser", { username: req.params.username }, (result) => {
-    console.log(req.params);
+    console.log(`these are the passed in params: ${req.params}`);
     if (result.user !== undefined) {
       res.send(result.user);
     } else {

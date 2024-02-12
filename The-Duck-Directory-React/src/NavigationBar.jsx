@@ -1,44 +1,67 @@
-import NavigationItem from "./NavigationItem";
-import React from "react";
+// import NavigationItem from "./NavigationItem";
+// import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import {LinkContainer} from 'react-router-bootstrap'
 
 function NavigationBar(props) {
   if (!props.isLoggedIn) {
     return null;
   }
 
-  const navigation = [
-    { title: "Home", link: "home" },
-    { title: "Employee", link: "employee" },
-    { title: "Prediction", link: "prediction" },
-  ];
-  return (
-    // <Navbar expand="lg" className="bg-body-tertiary">
-    //   <Container>
-    //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //     <Navbar.Collapse id="basic-navbar-nav">
-    //       <Nav className="me-auto">
-    //         <Link to="home">Home</Link>
-    //         <Link to="employee">Employee</Link>
-    //         <Link to="prediction">Prediction</Link>
-    //       </Nav>
-    //     </Navbar.Collapse>
-    //   </Container>
-    // </Navbar>
+  // const navigation = [
+  //   { title: "Home", link: "home" },
+  //   { title: "Employee", link: "employee" },
+  //   { title: "Prediction", link: "prediction" },
+  // ];
 
-    <nav>
-      <ul>
-        {navigation.map((navItem, index) => (
-          <NavigationItem
-            key={index}
-            link={navItem.link}
-            title={navItem.title}
-          />
-        ))}
-      </ul>
-    </nav>
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary" bg="primary" data-bs-theme="dark">
+      <Container>
+        <LinkContainer to="/home">
+          <Navbar.Brand>
+          <img
+              src="imgs/logo.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="duck logo"
+            />
+          </Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <LinkContainer to="/home">
+              <Nav.Link to="home">Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/employee">
+              <Nav.Link to="employee">Employee</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/prediction">
+              <Nav.Link to="prediction">Prediction</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+//     <LinkContainer to="/service">
+//     <Nav.Link>Service</Nav.Link>
+// </LinkContainer>
+
+    // <nav>
+    //   <ul>
+    //     {navigation.map((navItem, index) => (
+    //       <NavigationItem
+    //         key={index}
+    //         link={navItem.link}
+    //         title={navItem.title}
+    //       />
+    //     ))}
+    //   </ul>
+    // </nav>
   );
 }
 

@@ -1,4 +1,19 @@
+TODO:
+- prepare for demo/presentation
+
+WISHLIST:
+
+- have employees randomly select a manager
+- remove outliers from salary data before training the model
+- add different salary based on location
+- logout functionality/show "logged in as...."
+
+DONE:
+
 - add field on home page to search by full name
+- Add duck pictures
+- Add prediction functionality
+- Add React Bootstrap components to make it beautiful
 - add login page to redirect to home page
 - add ability to store status of login
 - display correct employee data on employee page depending on user's access level
