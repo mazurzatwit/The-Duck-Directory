@@ -52,7 +52,7 @@ function Login(props) {
       </Form.Group>
 
       <Button variant="primary" type="submit" onClick={handleClick}>
-        Search!
+        Login!
       </Button>
     </Form>
     </div>

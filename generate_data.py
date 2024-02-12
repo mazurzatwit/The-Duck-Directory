@@ -35,7 +35,8 @@ data_rows = [
         [2,3], #direct reports
         [], #manager
         "bob.duck", #username
-        "abc123" #password
+        "abc123", #password
+        "public/imgs/duck0.png" #imagePath
     ],
     [
         2,
@@ -48,7 +49,8 @@ data_rows = [
         [4], #direct reports
         [1], #manager
         "paddles.flippers", #username
-        "abc124" #password
+        "abc124", #password
+        "public/imgs/duck1.png" #imagePath
     ],
     [
        3,
@@ -61,7 +63,8 @@ data_rows = [
         [5], #direct reports
         [1], #manager
         "swims.mcgee", #username
-        "abc125" #password
+        "abc125", #password
+        "public/imgs/duck2.png" #imagePath
     ],
     [
         4,
@@ -74,7 +77,8 @@ data_rows = [
         [], #direct reports
         [2], #manager
         "michael.phelps", #username
-        "abc126" #password
+        "abc126", #password
+        "public/imgs/duck3.png" #imagePath
     ],
     [
         5,
@@ -87,7 +91,8 @@ data_rows = [
         [], #direct reports
         [3], #manager
         "donald.duck", #username
-        "abc127" #password
+        "abc127", #password
+        "public/imgs/duck4.png" #imagePath
     ]
 ]
 
@@ -120,6 +125,8 @@ for i in range(6, NUM_ROWS + 1):
     username = f"{first_name.lower()}.{last_name.lower()}"
     password = str(employee_id) + str(random.randint(100, 990)) + str(random.choice(string.ascii_lowercase)) + str(random.choice(string.ascii_lowercase)) + str(random.choice(string.ascii_lowercase))
 
+    image_path = random.choice(["public/imgs/duck0.png", "public/imgs/duck1.png", "public/imgs/duck2.png", "public/imgs/duck3.png", "public/imgs/duck4.png"])
+
     # Create the data row
     data_row = [
         employee_id,
@@ -132,7 +139,8 @@ for i in range(6, NUM_ROWS + 1):
         direct_reports,
         manager,
         username,
-        password
+        password,
+        image_path
     ]
 
     # Add the data row to the list
@@ -170,7 +178,7 @@ with open(OUTPUT_FILE, "w", newline="") as file:
     writer = csv.writer(file)
     writer.writerow(
         ["employee_id", "first_name", "last_name", "phone", "job_role", "work_location", "salary",
-         "direct_reports", "manager", "username", "password"]
+         "direct_reports", "manager", "username", "password", "image_path"]
     )
     writer.writerows(data_rows)
 

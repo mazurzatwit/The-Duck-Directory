@@ -1,7 +1,7 @@
-import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
 function Employee(props) {
   let show = false;
@@ -27,7 +27,7 @@ function Employee(props) {
       <Row className="justify-content-md-center">
         <Col className="float-right">
           <div className="align-self-end">
-            Image
+            <Image src={props.data.image_path} className="rounded float-end thumbnail" alt="a handsome duck" width="40%"/>
           </div>
         </Col>
         <Col>

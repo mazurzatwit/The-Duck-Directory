@@ -15,6 +15,7 @@ function App() {
   const [data, setData] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState(1);
+  const [nameSearchTerm, setNameSearchTerm] = useState();
   const [usernameInput, setUsername] = useState("");
   const [passwordInput, setPassword] = useState();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,6 +40,25 @@ function App() {
       getData();
     }
   }, [searchTerm]);
+
+  useEffect(() => {
+    const getData = async function () {
+      const names_list = nameSearchTerm.split(" ");
+      const first_name = names_list[0];
+      const last_name = names_list[1];
+      const name_string = `${first_name}.${last_name}`
+      console.log(name_string);
+      const response = await fetch(
+        `http://localhost:3000/employee/name/${name_string}`
+      );
+      const namedDuck = await response.json();
+      console.log(`found a named duck: ${namedDuck}`);
+      setData(namedDuck);
+    };
+    if (nameSearchTerm) {
+      getData();
+    }
+  }, [nameSearchTerm]);
 
   useEffect(() => {
     const getCurrentUser = async function () {
@@ -112,6 +132,8 @@ function App() {
               setUserIdInput={setUserIdInput}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
+              nameSearchTerm={nameSearchTerm}
+              setNameSearchTerm={setNameSearchTerm}
               data={JSON.stringify(data)}
             />
           }

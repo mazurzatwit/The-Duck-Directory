@@ -1,8 +1,8 @@
-import NavigationItem from "./NavigationItem";
-import React from "react";
+// import NavigationItem from "./NavigationItem";
+// import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap'
 
 function NavigationBar(props) {
@@ -10,11 +10,11 @@ function NavigationBar(props) {
     return null;
   }
 
-  const navigation = [
-    { title: "Home", link: "home" },
-    { title: "Employee", link: "employee" },
-    { title: "Prediction", link: "prediction" },
-  ];
+  // const navigation = [
+  //   { title: "Home", link: "home" },
+  //   { title: "Employee", link: "employee" },
+  //   { title: "Prediction", link: "prediction" },
+  // ];
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="primary" data-bs-theme="dark">
@@ -22,7 +22,7 @@ function NavigationBar(props) {
         <LinkContainer to="/home">
           <Navbar.Brand>
           <img
-              src="/src/imgs/logo.png"
+              src="imgs/logo.png"
               width="30"
               height="30"
               className="d-inline-block align-top"

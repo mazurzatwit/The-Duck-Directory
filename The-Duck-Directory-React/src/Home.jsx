@@ -7,16 +7,17 @@ import Row from 'react-bootstrap/Row';
 
 function Home(props) {
   const handleIdChange = (e) => {
-    props.setIdInput(e.target.value);
-    console.log(e.target.value);
+    props.setUserIdInput(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handleNameChange = (e) => {
-    props.setNameInput(e.target.value);
-    console.log(e.target.value);
+    props.setUserNameInput(e.target.value);
+    // console.log(e.target.value);
   };
 
   const navigate = useNavigate();
+
   const handleIdClick = (e) => {
     e.preventDefault();
     // do something to process the user input
@@ -29,13 +30,14 @@ function Home(props) {
   const handleNameClick = (e) => {
     e.preventDefault();
     // do something to process the user input
-    props.setSearchTerm(props.userNameInput);
+    props.setNameSearchTerm(props.userNameInput);
+    console.log(`nameSearchTerm: ${props.userNameInput}`)
     // clear the box of userInput
     props.setUserNameInput("");
     navigate('/employee');
   };
 
-  const data_to_display = JSON.parse(props.data);
+  // const data_to_display = JSON.parse(props.data);
 
   // return (
   //   <>

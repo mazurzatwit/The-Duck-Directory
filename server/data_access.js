@@ -26,6 +26,12 @@ module.exports.call = async function call(operation, parameters, callback) {
       });
       callback({ employee: employee });
       break;
+     case "findOneEmployeeByName":
+      const namedEmployee = await collection.findOne({
+        first_name: parameters.first_name, last_name: parameters.last_name
+      });
+      callback({ employee: namedEmployee });
+      break;
     case "findCurrentUser":
       const user = await collection.findOne({
         username: parameters.username,
