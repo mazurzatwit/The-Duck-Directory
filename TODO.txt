@@ -1,4 +1,17 @@
+TODO:
+- Add prediction functionality
+- Add React Bootstrap components to make it beautiful
+- prepare for demo/presentation
+
+WISHLIST:
 - add field on home page to search by full name
+- Add duck pictures
+- have employees randomly select a manager
+- remove outliers from salary data before training the model
+- add different salary based on location
+
+DONE:
+
 - add login page to redirect to home page
 - add ability to store status of login
 - display correct employee data on employee page depending on user's access level

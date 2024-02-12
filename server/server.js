@@ -20,7 +20,7 @@ app.get("/employee/:id", function (req, res) {
 
 app.get("/employee/username/:username", function (req, res) {
   dao.call("findCurrentUser", { username: req.params.username }, (result) => {
-    console.log(req.params);
+    console.log(`these are the passed in params: ${req.params}`);
     if (result.user !== undefined) {
       res.send(result.user);
     } else {

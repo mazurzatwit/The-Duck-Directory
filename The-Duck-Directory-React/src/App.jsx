@@ -10,7 +10,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [userInput, setUserInput] = useState();
+  const [userNameInput, setUserNameInput] = useState();
+  const [userIdInput, setUserIdInput] = useState();
   const [data, setData] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState(1);
@@ -21,6 +22,9 @@ function App() {
   const [jobRole, setJobRole] = useState();
   const [workLocale, setWorkLocale] = useState();
   const [predictionData, setPredictionData] = useState();
+  const [predictionResponse, setPredictionResponse] = useState();
+  const [madePrediction, setMadePrediction] = useState(false);
+
 
   useEffect(() => {
     const getData = async function () {
@@ -38,11 +42,12 @@ function App() {
 
   useEffect(() => {
     const getCurrentUser = async function () {
+      console.log("getting currentUser");
       const response = await fetch(
         `http://localhost:3000/employee/username/${creds}`
       );
       const duck = await response.json();
-      console.log(duck);
+      console.log(`received currentuser data from fetch: ${duck}`);
       setCurrentUser(duck);
     };
     if (creds) {
@@ -51,13 +56,36 @@ function App() {
   }, [creds]);
 
   useEffect(() => {
-    console.log(predictionData);
+    const getPrediction = async function () {
+      console.log("getting prediction");
+      const response = await fetch(
+        `http://localhost:5000/predict/${predictionData.work_locale}/${predictionData.job_role}`
+      );
+      const pred = await response.json();
+      console.log(pred);
+      setPredictionResponse(pred);
+      setMadePrediction(true);
+    };
+    if (predictionData) {
+      getPrediction();
+    }
   }, [predictionData]);
+
+  useEffect(() => {
+    const updateMadePrediction = () => {
+      console.log(`Made Prediction is now: ${madePrediction}`)
+    }
+    if (madePrediction) {
+      updateMadePrediction();
+    }
+  }, [madePrediction])
 
   return (
     <div>
-      <h1>The Duck Directory</h1>
       <NavigationBar isLoggedIn={isLoggedIn} />
+      <h1 className="d-flex justify-content-center">
+        <span className="mt-3">The Duck Directory</span>
+      </h1>
       <Routes>
         <Route
           path="/login"
@@ -78,8 +106,10 @@ function App() {
           path="/home"
           element={
             <Home
-              userInput={userInput}
-              setUserInput={setUserInput}
+              userNameInput={userNameInput}
+              setUserNameInput={setUserNameInput}
+              userIdInput={userIdInput}
+              setUserIdInput={setUserIdInput}
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               data={JSON.stringify(data)}
@@ -99,6 +129,9 @@ function App() {
               workLocale={workLocale}
               setWorkLocale={setWorkLocale}
               setPredictionData={setPredictionData}
+              predictionData={predictionData}
+              predictionResponse={predictionResponse}
+              madePrediction={madePrediction}
             />
           }
         />
