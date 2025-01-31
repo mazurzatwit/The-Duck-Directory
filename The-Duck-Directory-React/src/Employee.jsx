@@ -6,11 +6,8 @@ import Image from 'react-bootstrap/Image';
 function Employee(props) {
   let show = false;
 
-  console.log(`employee id:${props.data.employee_id}`);
-  console.log(`current user id: ${props.currentUser.employee_id}`)
   const managerString = props.data.manager[1];
 
-  //   console.log(typeof managerString);
   if (
     props.data.employee_id === props.currentUser.employee_id ||
     props.currentUser.job_role === "HR" ||

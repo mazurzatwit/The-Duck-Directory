@@ -33,7 +33,6 @@ function App() {
         `http://localhost:3000/employee/${searchTerm}`
       );
       const ducks = await response.json();
-      console.log(ducks);
       setData(ducks);
     };
     if (searchTerm) {
@@ -47,12 +46,10 @@ function App() {
       const first_name = names_list[0];
       const last_name = names_list[1];
       const name_string = `${first_name}.${last_name}`
-      console.log(name_string);
       const response = await fetch(
         `http://localhost:3000/employee/name/${name_string}`
       );
       const namedDuck = await response.json();
-      console.log(`found a named duck: ${namedDuck}`);
       setData(namedDuck);
     };
     if (nameSearchTerm) {
@@ -63,9 +60,15 @@ function App() {
   useEffect(() => {
     const getCurrentUser = async function () {
       console.log("getting currentUser");
-      const response = await fetch(
-        `http://localhost:3000/employee/username/${creds}`
-      );
+      const response = ''
+      try {
+        response = await fetch(
+          `http://localhost:3000/employee/username/${creds}`
+        );
+      }
+      catch (error) {
+        console.log("User not found")
+      }
       const duck = await response.json();
       console.log(`received currentuser data from fetch: ${duck}`);
       setCurrentUser(duck);
@@ -78,11 +81,15 @@ function App() {
   useEffect(() => {
     const getPrediction = async function () {
       console.log("getting prediction");
-      const response = await fetch(
-        `http://localhost:5000/predict/${predictionData.work_locale}/${predictionData.job_role}`
-      );
+      try {
+        const response = await fetch(
+          `http://localhost:5000/predict/${predictionData.work_locale}/${predictionData.job_role}`
+        );
+      }
+      catch (error) {
+        console.log("Prediction failure")
+      }
       const pred = await response.json();
-      console.log(pred);
       setPredictionResponse(pred);
       setMadePrediction(true);
     };

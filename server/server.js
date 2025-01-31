@@ -6,6 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.json()); //Parse JSON body
 app.use(cors());
+app.disable('x-powered-by');
 
 app.get("/employee/:id", function (req, res) {
   dao.call("findOneEmployee", { id: req.params.id }, (result) => {
@@ -20,7 +21,6 @@ app.get("/employee/:id", function (req, res) {
 
 app.get("/employee/name/:wholeName", function (req, res) {
   const name_list = req.params.wholeName.split(".");
-  console.log(name_list)
   const first_name = name_list[0];
   const last_name = name_list[1];
   dao.call("findOneEmployeeByName", { first_name: first_name, last_name: last_name }, (result) => {
@@ -35,7 +35,6 @@ app.get("/employee/name/:wholeName", function (req, res) {
 
 app.get("/employee/username/:username", function (req, res) {
   dao.call("findCurrentUser", { username: req.params.username }, (result) => {
-    console.log(`these are the passed in params: ${req.params}`);
     if (result.user !== undefined) {
       res.send(result.user);
     } else {

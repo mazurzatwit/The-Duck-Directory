@@ -1,20 +1,10 @@
-// import NavigationItem from "./NavigationItem";
-// import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-// import { NavLink } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap'
 
 function NavigationBar(props) {
   if (!props.isLoggedIn) {
     return null;
   }
-
-  // const navigation = [
-  //   { title: "Home", link: "home" },
-  //   { title: "Employee", link: "employee" },
-  //   { title: "Prediction", link: "prediction" },
-  // ];
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary" bg="primary" data-bs-theme="dark">
@@ -47,21 +37,6 @@ function NavigationBar(props) {
       </Container>
     </Navbar>
 
-//     <LinkContainer to="/service">
-//     <Nav.Link>Service</Nav.Link>
-// </LinkContainer>
-
-    // <nav>
-    //   <ul>
-    //     {navigation.map((navItem, index) => (
-    //       <NavigationItem
-    //         key={index}
-    //         link={navItem.link}
-    //         title={navItem.title}
-    //       />
-    //     ))}
-    //   </ul>
-    // </nav>
   );
 }
 

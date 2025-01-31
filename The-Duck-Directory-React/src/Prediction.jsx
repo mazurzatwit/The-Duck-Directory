@@ -4,17 +4,14 @@ import Form from 'react-bootstrap/Form';
 function Prediction(props) {
   const handleJobRoleChange = (e) => {
     props.setJobRole(e.target.value);
-    //console.log(e.target.value);
   };
 
   const handleWorkLocaleChange = (e) => {
     props.setWorkLocale(e.target.value);
-    //console.log(e.target.value);
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    // do something to process the user input
     props.setPredictionData({
         job_role: props.jobRole,
         work_locale: props.workLocale
@@ -29,7 +26,6 @@ function Prediction(props) {
   return (
     <div className="d-flex justify-content-center">
     <div className="mt-2">
-    {/* <div className="ml-3"> */}
     <Form>
       
       <Form.Group className="mb-3" >
@@ -72,43 +68,7 @@ function Prediction(props) {
     </div>
   )
 
-  // return (
-  //   <>
-  //     <h1>Salary Prediction</h1>
-  //     <form>
-  //       <label>
-  //         Job Role
-  //         <input
-  //           type="text"
-  //           value={props.jobRole}
-  //           onChange={handleJobRoleChange}
-  //         />
-  //       </label>
-  //     </form>
-  //     <form>
-  //       <label>
-  //         Work Location
-  //         <input
-  //           type="text"
-  //           value={props.workLocale}
-  //           onChange={handleWorkLocaleChange}
-  //         />
-  //       </label>
-  //     </form>
-  //     <button onClick={handleClick}>
-  //       {props.madePrediction
-  //       ? <span>Predict Again!</span>
-  //       : <span>Predict!</span>}
-  //     </button>
-  //     {show 
-  //     ? <ul>
-  //         <li>Job Role: {props.predictionData.job_role}</li>
-  //         <li>Work Location: {props.predictionData.work_locale}</li>
-  //         <li>Predicted Salary: {props.predictionResponse.results}</li>
-  //       </ul> 
-  //       : null}
-  //   </>
-  // );
+ 
 }
 
 export default Prediction;
